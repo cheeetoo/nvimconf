@@ -1,6 +1,6 @@
 require('lualine').setup({
     options = {
-        theme = 'tokyonight',
+        theme = 'gruvbox-material',
         component_separators = '',
         section_separators = '',
         icons_enabled = true,
@@ -28,19 +28,4 @@ require('lualine').setup({
             { 'location', color = { gui = 'bold' } },
         },
     },
-    -- tabline = {
-    --     lualine_a = {
-    --         {
-    --             'buffers',
-    --             buffers_color = { active = 'lualine_b_normal' },
-    --         },
-    --     },
-    --     lualine_z = {
-    --         {
-    --             'tabs',
-    --             tabs_color = { active = 'lualine_b_normal' },
-    --         },
-    --     },
-    -- },
-    -- extensions = { 'quickfix', 'nvim-tree' },
 })

@@ -3,6 +3,10 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   --theme
+    use {'ellisonleao/gruvbox.nvim',
+    config = function ()
+        vim.cmd [[colo gruvbox]]
+    end}
 
   --lualine
   use {
@@ -71,19 +75,7 @@ return require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
     require("luasnip/loaders/from_vscode").lazy_load()
 
-    use {'folke/tokyonight.nvim',
-    config = function ()
-        require("tokyonight").setup({
-            transparent = true,
-            transparent_sidebar = true,
-            styles = {
-                sidebars = "transparent",
-                floats = "transparent",
-            }
-        })
-        vim.g.tokyonight_transparent = true
-        vim.cmd [[colo tokyonight-moon]]
-    end}
+    -- use {'folke/tokyonight.nvim'}
 
     use {'norcalli/nvim-colorizer.lua',
     config = function ()
@@ -98,4 +90,5 @@ return require('packer').startup(function(use)
       end
     }
 
+    use {'sainnhe/gruvbox-material'}
 end)

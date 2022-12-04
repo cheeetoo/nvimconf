@@ -15,6 +15,9 @@ end
 vim.keymap.set('n', '<leader>t', '<CMD>ToggleTerm<CR>')
 vim.keymap.set('n', '<leader>.', '<CMD>NvimTreeToggle<CR>')
 
+-- exit terminal
+vim.keymap.set('t', 'kj', '<C-\\><C-n>')
+
 -- caps to escape
 vim.keymap.set('i', 'kj', '<esc>')
 
