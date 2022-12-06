@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
 
     --more snippets
     use "rafamadriz/friendly-snippets"
-    require("luasnip/loaders/from_vscode").lazy_load()
+    -- require("luasnip/loaders/from_vscode").lazy_load()
 
     -- use {'folke/tokyonight.nvim'}
 
