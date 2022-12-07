@@ -3,10 +3,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   --theme
-    use {'ellisonleao/gruvbox.nvim',
-    config = function ()
-        vim.cmd [[colo gruvbox]]
-    end}
+    use {'ellisonleao/gruvbox.nvim'}
 
   --lualine
   use {
@@ -75,7 +72,7 @@ return require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
     -- require("luasnip/loaders/from_vscode").lazy_load()
 
-    -- use {'folke/tokyonight.nvim'}
+    use {'folke/tokyonight.nvim'}
 
     use {'norcalli/nvim-colorizer.lua',
     config = function ()
@@ -110,5 +107,4 @@ use({
     run = function() vim.fn["mkdp#util#install"]() end,
 })
 
-use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)
