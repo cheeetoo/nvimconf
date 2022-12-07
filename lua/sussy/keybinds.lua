@@ -11,6 +11,9 @@ local function bind(op, outer_opts)
     end
 end
 
+--git
+vim.keymap.set('n', '<leader>lg', '<CMD>LazyGit<cr>')
+
 -- terminal and file explorer
 vim.keymap.set('n', '<leader>t', '<CMD>ToggleTerm<CR>')
 vim.keymap.set('n', '<leader>.', '<CMD>NvimTreeToggle<CR>')
