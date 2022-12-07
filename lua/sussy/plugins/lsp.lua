@@ -97,7 +97,7 @@ end
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.snippetSupport = true
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig').pyright.setup(config())
+  require('lspconfig').pyright.setup(config())
   require('lspconfig').rust_analyzer.setup(config())
   require('lspconfig').html.setup(config())
   require('lspconfig').cssls.setup(config({
@@ -106,7 +106,7 @@ end
   require('lspconfig').tsserver.setup{config({
       cmd = {"typescript-language-server", "--stdio"}
   })}
-  require'lspconfig'.jedi_language_server.setup(config())
+  -- require'lspconfig'.jedi_language_server.setup(config())
   require("lspconfig").sumneko_lua.setup(config({
 	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 	settings = {
