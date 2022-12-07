@@ -91,4 +91,7 @@ return require('packer').startup(function(use)
     }
 
     use {'sainnhe/gruvbox-material'}
+
+    -- git plugin
+    use 'kdheepak/lazygit.nvim'
 end)
