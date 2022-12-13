@@ -3,11 +3,13 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   --theme
-    use {'ellisonleao/gruvbox.nvim'}
+    use {'ellisonleao/gruvbox.nvim',
+    config = function ()
+        require('sussy.plugins.gruvbox')
+    end}
 
   --lualine
-  use {
-    'nvim-lualine/lualine.nvim',
+  use {'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
         require('sussy.plugins.lualine')
@@ -23,11 +25,11 @@ return require('packer').startup(function(use)
   })
 
     --lsp
-    use({
+    use ({
         'neovim/nvim-lspconfig',
         requires = { 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lsp', 'saadparwaiz1/cmp_luasnip'},
         config = function()
-            require('sussy.plugins.lsp')
+            require('sussy.plugins.oldlsp')
         end,
     })
 
@@ -56,7 +58,7 @@ return require('packer').startup(function(use)
 
     -- file explorer
     use {'nvim-tree/nvim-tree.lua', tag = 'nightly', config = function ()
-        require('nvim-tree').setup()
+        require('sussy.plugins.nvim-tree')
     end}
 
     -- top bar
@@ -67,7 +69,6 @@ return require('packer').startup(function(use)
             require"sussy.plugins.bufferline"
         end
     }
-
     --more snippets
     use "rafamadriz/friendly-snippets"
     -- require("luasnip/loaders/from_vscode").lazy_load()
@@ -101,10 +102,11 @@ return require('packer').startup(function(use)
     }
 
     --markdown
-    -- install without yarn or npm
 use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
 })
+    --mail
+    use 'felipec/notmuch-vim'
 
 end)

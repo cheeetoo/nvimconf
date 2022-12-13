@@ -1,4 +1,4 @@
-vim.cmd [[colo gruvbox-material]]
+vim.cmd [[colo gruvbox]]
 require('sussy.settings')
 require('sussy.plugins')
 require('sussy.keybinds')

@@ -4,7 +4,6 @@ local opt = vim.opt
 
 --colors
 o.termguicolors = true
--- vim.cmd("colo gruvbox-material")
 
 -- transparency
 
