@@ -1,52 +1,84 @@
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  --theme
+    --lsp
+    use {
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
+
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'saadparwaiz1/cmp_luasnip'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-nvim-lua'},
+
+        -- Snippets
+        {'L3MON4D3/LuaSnip'},
+        {'rafamadriz/friendly-snippets'},
+      },
+      config = function ()
+        require("sussy.plugins.lsp")
+      end
+    }
+
+    -- zen mode
+    -- Lua
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+        require("zen-mode").setup {
+            width=80
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
+
+    --theme
     use {'ellisonleao/gruvbox.nvim',
     config = function ()
         require('sussy.plugins.gruvbox')
     end}
 
-  --lualine
-  use {'nvim-lualine/lualine.nvim',
+    --lualine
+    use {'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-        require('sussy.plugins.lualine')
-    end,
-  }
+        require('sussy.plugins.lualine') end,
+    }
 
-  -- --icons
-  use({
+    -- --icons
+    use({
     'kyazdani42/nvim-web-devicons',
     config = function()
         require('nvim-web-devicons').setup()
     end,
-  })
-
-    --lsp
-    use ({
-        'neovim/nvim-lspconfig',
-        requires = { 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lsp', 'saadparwaiz1/cmp_luasnip'},
-        config = function()
-            require('sussy.plugins.oldlsp')
-        end,
     })
 
-  -- terminal
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    -- terminal
+    use {"akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
         require'toggleterm'.setup {
             shade_terminals = false
         }
     end}
 
-  --close pairs
-  use {"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
+    --close pairs
+    use {"windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
-  --snippests
-  use({"L3MON4D3/LuaSnip"})
+    --snippests
+    use({"L3MON4D3/LuaSnip"})
 
     --comment toggle
     use {
@@ -70,7 +102,10 @@ return require('packer').startup(function(use)
         end
     }
     --more snippets
-    use "rafamadriz/friendly-snippets"
+    use {"rafamadriz/friendly-snippets",
+    config = function ()
+        require('luasnip').filetype_extend("html", { "html" })
+    end}
     -- require("luasnip/loaders/from_vscode").lazy_load()
 
     use {'folke/tokyonight.nvim'}
@@ -102,11 +137,8 @@ return require('packer').startup(function(use)
     }
 
     --markdown
-use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-})
-    --mail
-    use 'felipec/notmuch-vim'
-
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)

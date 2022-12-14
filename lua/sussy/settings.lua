@@ -5,8 +5,6 @@ local opt = vim.opt
 --colors
 o.termguicolors = true
 
--- transparency
-
 -- number of lines above and below cursor 
 o.scrolloff = 5
 
@@ -50,9 +48,6 @@ o.backup = false
 o.writebackup = false
 o.undofile = true
 o.swapfile = false
--- o.backupdir = '/tmp/'
--- o.directory = '/tmp/'
--- o.undodir = '/tmp/'
 
 --split options
 o.splitright = true
