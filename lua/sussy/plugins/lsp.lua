@@ -25,6 +25,7 @@ lsp.set_preferences({
   }
 })
 
+
 local cmp = require('cmp')
 
 lsp.setup_nvim_cmp({
