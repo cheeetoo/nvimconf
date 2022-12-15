@@ -28,17 +28,6 @@ return require('packer').startup(function(use)
       end
     }
 
-    -- zen mode
-    -- Lua
-    use {
-      "folke/zen-mode.nvim",
-      config = function()
-        require("zen-mode").setup {
-            width=80
-        }
-      end
-    }
-
     --theme
     use {'ellisonleao/gruvbox.nvim',
     config = function ()
@@ -50,6 +39,7 @@ return require('packer').startup(function(use)
         require('rose-pine').setup({
             dark_variant = 'moon'
         })
+        vim.cmd [[colo rose-pine]]
     end}
 
     --lualine
@@ -145,4 +135,12 @@ return require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
+        -- zen mode
+    -- Lua
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+          require('sussy.plugins.zen-mode')
+      end
+    }
 end)

@@ -1,5 +1,6 @@
 local colors = require("gruvbox.palette")
 require("gruvbox").setup({
+    transparent_mode = true,
     bold = false,
   overrides = {
     GruvboxRedSign = { fg = colors.red, bg = colors.dark0, reverse = false },
