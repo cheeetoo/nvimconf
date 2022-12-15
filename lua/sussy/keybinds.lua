@@ -34,6 +34,10 @@ vim.keymap.set('n', '<leader>wj', '<C-w>j')
 vim.keymap.set('n', '<leader>wk', '<C-w>k')
 vim.keymap.set('n', '<leader>wc', '<CMD>bd<CR>')
 
+-- bufferline
+vim.keymap.set('n', '<S-Tab>', '<CMD>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<Tab>', '<CMD>BufferLineCycleNext<CR>')
+
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -49,10 +53,5 @@ local map = vim.api.nvim_set_keymap
 
 map('n', '<S-Tab>',   '<CMD>BufferLineCyclePrev<CR>',  { silent = true })
 map('n', '<Tab>',     '<CMD>BufferLineCycleNext<CR>',  { silent = true })
-
-for i = 1,9 do
-  map('n', ('<F%s>'):format(i),      ('<Plug>(cokeline-focus-%s)'):format(i),  { silent = true })
-  map('n', ('<Leader>%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
-end
 
 return M

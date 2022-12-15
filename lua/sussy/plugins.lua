@@ -35,9 +35,6 @@ return require('packer').startup(function(use)
       config = function()
         require("zen-mode").setup {
             width=80
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
         }
       end
     }
@@ -46,6 +43,13 @@ return require('packer').startup(function(use)
     use {'ellisonleao/gruvbox.nvim',
     config = function ()
         require('sussy.plugins.gruvbox')
+    end}
+
+    use {'rose-pine/neovim',
+    config = function ()
+        require('rose-pine').setup({
+            dark_variant = 'moon'
+        })
     end}
 
     --lualine

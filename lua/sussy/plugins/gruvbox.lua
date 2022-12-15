@@ -12,4 +12,3 @@ require("gruvbox").setup({
     SignColumn = {bg = colors.dark0 }
   }
 })
-vim.cmd [[colo gruvbox]]
