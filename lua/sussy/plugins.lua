@@ -157,7 +157,5 @@ return require('packer').startup(function(use)
     }
 
     -- bootstrapping
-    if ensure_packer then
-        require('packer').sync()
-    end
+    ensure_packer()
 end)
