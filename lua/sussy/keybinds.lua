@@ -15,7 +15,10 @@ end
 vim.keymap.set('n', '<leader>lg', '<CMD>LazyGit<cr>')
 
 -- zen mode
-vim.keymap.set('n', '<leader>zz', '<CMD>ZenMode<CR>')
+vim.keymap.set('n', '<leader>zz', function ()
+   vim.cmd [[ZenMode]]
+   vim.fn.system [[tmux set -g status]]
+end)
 
 -- terminal and file explorer
 vim.keymap.set('n', '<leader>t', '<CMD>ToggleTerm<CR>')
