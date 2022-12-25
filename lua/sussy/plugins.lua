@@ -47,11 +47,9 @@ return require('packer').startup(function(use)
     end}
 
     use {'rose-pine/neovim',
-    config = function ()
-        require('rose-pine').setup({
-            dark_variant = 'moon'
-        })
-    end}
+config = function ()
+    dark_variant = 'moon'
+end}
 
     --lualine
     use {'nvim-lualine/lualine.nvim',
@@ -113,7 +111,9 @@ return require('packer').startup(function(use)
     end}
     -- require("luasnip/loaders/from_vscode").lazy_load()
 
-    use {'folke/tokyonight.nvim'}
+    use {'folke/tokyonight.nvim',
+    config = function ()
+    end}
 
     use {'norcalli/nvim-colorizer.lua',
     config = function ()
@@ -149,7 +149,7 @@ return require('packer').startup(function(use)
         -- zen mode
     -- Lua
     use {
-      "folke/zen-mode.nvim",
+      "cheeetoo/zen-mode.nvim",
       config = function()
           require('sussy.plugins.zen-mode')
       end
@@ -157,4 +157,8 @@ return require('packer').startup(function(use)
 
     -- bootstrapping
     ensure_packer()
+
+    -- rustfmt
+    use 'rust-lang/rust.vim'
+
 end)

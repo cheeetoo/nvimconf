@@ -6,7 +6,8 @@ lsp.ensure_installed({
     'rust_analyzer',
     'pyright',
     'html',
-    'cssls'
+    'cssls',
+    "tailwindcss"
 })
 
 lsp.set_preferences({
@@ -31,7 +32,7 @@ local cmp = require('cmp')
 lsp.setup_nvim_cmp({
     mapping = cmp.mapping.preset.insert({
       ['<TAB>'] = cmp.mapping.confirm({ select = true })
-    })
+    }),
 })
 
 -- keybinds

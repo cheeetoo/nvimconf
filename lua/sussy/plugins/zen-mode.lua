@@ -28,6 +28,6 @@ require("zen-mode").setup {
       showcmd = false, -- disables the command in the last line of the screen
     },
     gitsigns = { enabled = true }, -- disables git signs
-    -- tmux = { enabled = true }, -- disables the tmux statusline
+    tmux = { enabled = true }, -- disables the tmux statusline
   },
 }

@@ -11,14 +11,17 @@ local function bind(op, outer_opts)
     end
 end
 
+-- edit config
+vim.keymap.set('n', '<leader>ee', '<CMD>e ~/.config/nvim/<CR>')
+
+-- rust format
+vim.keymap.set('n', '<leader>I', '<CMD>RustFmt<CR>')
+
 --git
-vim.keymap.set('n', '<leader>lg', '<CMD>LazyGit<cr>')
+vim.keymap.set('n', '<leader>lg', '<CMD>LazyGit<CR>')
 
 -- zen mode
-vim.keymap.set('n', '<leader>zz', function ()
-   vim.cmd [[ZenMode]]
-   vim.fn.system [[tmux set -g status]]
-end)
+vim.keymap.set('n', '<leader>zz', '<CMD>ZenMode<CR>')
 
 -- terminal and file explorer
 vim.keymap.set('n', '<leader>t', '<CMD>ToggleTerm<CR>')

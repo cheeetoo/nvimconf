@@ -16,7 +16,7 @@ o.numberwidth = 2
 
 -- editing
 vim.cmd [[autocmd BufNewFile,BufRead * setlocal formatoptions-=ro]]
-o.autochdir = true
+o.autochdir = false
 o.expandtab = true
 o.smarttab = true
 o.wrap = true
