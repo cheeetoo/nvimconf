@@ -1,6 +1,6 @@
 -- bootstrapping
 local ensure_packer = function()
-  local fn = vim.fn
+    local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -47,9 +47,12 @@ return require('packer').startup(function(use)
     end}
 
     use {'rose-pine/neovim',
-config = function ()
-    dark_variant = 'moon'
-end}
+        config = function ()
+            require('rose-pine').setup({
+                dark_variant = 'moon',
+            })
+            vim.cmd [[colorscheme rose-pine]]
+    end}
 
     --lualine
     use {'nvim-lualine/lualine.nvim',
@@ -154,6 +157,15 @@ end}
           require('sussy.plugins.zen-mode')
       end
     }
+
+    -- init.lua
+    use {"lukas-reineke/indent-blankline.nvim",
+    config = function ()
+        require('indent_blankline').setup {
+            how_current_context = true,
+            show_current_context_start = true,
+        }
+    end}
 
     -- bootstrapping
     ensure_packer()
